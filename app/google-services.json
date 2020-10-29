@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961208664005",
+    "firebase_url": "https://drugstore-4f8c5.firebaseio.com",
+    "project_id": "drugstore-4f8c5",
+    "storage_bucket": "drugstore-4f8c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961208664005:android:f2185207bc3641d20f95ac",
+        "android_client_info": {
+          "package_name": "com.example.drugstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961208664005-602bo8tmfah9mgkjo0besanpksutcmif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.drugstore",
+            "certificate_hash": "5c50b4d843ce8fe41d78399e45b65ca539bd672a"
+          }
+        },
+        {
+          "client_id": "961208664005-tmadvrp6vhs76bva8ij7oqc3nhpd3phl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOBMSbWJ_ADIaRtQB3ctBqgPWYwbKSxrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961208664005-tmadvrp6vhs76bva8ij7oqc3nhpd3phl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

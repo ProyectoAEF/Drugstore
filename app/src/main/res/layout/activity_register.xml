@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        tools:context=".RegisterActivity">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginBottom="14dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/button" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:hint="Documento ID"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Apellido"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:onClick="register"
+            android:text="Crear cuenta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="4dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="51dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
