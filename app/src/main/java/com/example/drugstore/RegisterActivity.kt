@@ -61,9 +61,6 @@ class RegisterActivity : AppCompatActivity() {
         if(TextUtils.isEmpty(password)||password.length<6){
             editTextTextPassword3.setError("La contraseña minima es de 6 caracteres")
         }else{
-            if(isValidEmail(email.trim())){
-                editTextTextEmailAddress3.setError("Email con caracteres no validos")
-            }else{
                 if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(lastname)&&!TextUtils.isEmpty(numid)&&!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)){
                     progressBar.visibility=View.VISIBLE
 
@@ -85,7 +82,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
                 }
-        }
+
         }
 
 
