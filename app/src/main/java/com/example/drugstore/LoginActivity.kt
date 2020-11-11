@@ -59,6 +59,6 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun action(){
         finish()
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this,Menu::class.java))
     }
 }
