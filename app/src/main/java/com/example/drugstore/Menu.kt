@@ -10,6 +10,7 @@ class Menu : AppCompatActivity() {
     private lateinit var buy:ImageView
     private lateinit var log_out:ImageView
     private lateinit var mFirebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)

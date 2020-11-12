@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.core.utilities.Utilities
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -59,6 +60,10 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun action(){
         finish()
-        startActivity(Intent(this,Menu::class.java))
+        val mDatabase= FirebaseDatabase.getInstance().getReference("User")
+        val user=FirebaseAuth.getInstance().currentUser
+        val userid= user?.uid.toString()
+        val intent = Intent(this, Tienda::class.java).apply { putExtra("cliente", userid) }
+        startActivity(intent)
     }
 }
