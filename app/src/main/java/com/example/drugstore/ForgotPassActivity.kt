@@ -26,14 +26,12 @@ class ForgotPassActivity : AppCompatActivity() {
 
     fun send(view:View){
         val email=editTextTextEmailAddress2.text.toString()
-
         if(!TextUtils.isEmpty(email)){
+            progressBar.visibility=View.VISIBLE
             auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(this){
                     task->
-
                     if(task.isSuccessful){
-                        progressBar.visibility=View.VISIBLE
                         finish()
                         startActivity(Intent(this,LoginActivity::class.java))
                     }else{
