@@ -5,22 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.drugstore.R
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.drugstore.MainViewModel
 import com.example.drugstore.RecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_dashboard.*
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 class DashboardFragment : Fragment() {
 
-    private var layoutManager:RecyclerView.LayoutManager?=null
-    private var adapter:RecyclerView.Adapter<RecyclerAdapter.ViewHolder>?=null
 
+    private lateinit var adapter: RecyclerAdapter
+    private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +32,19 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = RecyclerAdapter()
         }
+        adapter = RecyclerAdapter(this)
+        recyclerView.adapter = adapter
+
+        observeData()
+    }
+
+    fun observeData(){
+        viewModel.fetchProductoData().observe(this, Observer {
+            adapter.setListData(it)
+            adapter.notifyDataSetChanged()
+
+        })
     }
 
 }
