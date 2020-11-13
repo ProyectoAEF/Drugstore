@@ -16,7 +16,9 @@ class Repo {
                 val imageUrl = document.getString("imageUrl")
                 val nombre = document.getString("nombre")
                 val precio = document.getString("precio")
-                var producto = Producto(imageUrl!!,nombre!!,precio!!)
+                val cantidad = document.getString("cantidad")
+                val prescrip = document.getBoolean("prescrip")
+                var producto = Producto(imageUrl!!,nombre!!,precio!!,cantidad!!, prescrip!!)
 
                 listData.add(producto)
             }

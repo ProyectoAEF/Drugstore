@@ -49,6 +49,12 @@ class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adap
             Glide.with(context).load(producto.imageUrl).into(itemView.item_image)
             itemView.item_title.text = producto.nombre
             itemView.item_price.text = producto.precio
+            itemView.item_cantidad.text = producto.cantidad
+            if(producto.prescrip == false){
+                itemView.item_prescrip.text = "Producto no prescrito"
+            } else{
+                itemView.item_prescrip.text = "Producto prescrito"
+            }
         }
     }
 }
