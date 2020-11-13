@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Tienda"></activity>
-        <activity android:name=".Dashboard"/>
         <activity android:name=".Menu" />
         <activity android:name=".ForgotPassActivity" />
         <activity android:name=".MainActivity" />

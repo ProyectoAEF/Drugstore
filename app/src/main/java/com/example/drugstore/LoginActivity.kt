@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.core.utilities.Utilities
@@ -22,6 +23,9 @@ class LoginActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val actionBar=supportActionBar
+        actionBar?.hide()
 
         editTextTextEmailAddress=findViewById(R.id.editTextTextEmailAddress)
         editTextTextPassword=findViewById(R.id.editTextTextPassword)

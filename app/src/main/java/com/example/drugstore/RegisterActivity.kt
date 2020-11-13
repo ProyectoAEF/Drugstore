@@ -31,6 +31,9 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        val actionBar=supportActionBar
+        actionBar?.hide()
+
         editTextTextPersonName6=findViewById(R.id.editTextTextPersonName6)
         editTextTextPersonName5=findViewById(R.id.editTextTextPersonName5)
         editTextTextPersonName4=findViewById(R.id.editTextTextPersonName4)
