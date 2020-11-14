@@ -1,5 +1,6 @@
 package com.example.drugstore.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.drugstore.R
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.drugstore.MainViewModel
-import com.example.drugstore.RecyclerAdapter
+import com.example.drugstore.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
 
 
     private lateinit var adapter: RecyclerAdapter
@@ -33,7 +32,7 @@ class DashboardFragment : Fragment() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
         }
-        adapter = RecyclerAdapter(this)
+        adapter = RecyclerAdapter(this, this)
         recyclerView.adapter = adapter
 
         observeData()
@@ -47,4 +46,9 @@ class DashboardFragment : Fragment() {
         })
     }
 
+    override fun onButtonCLick(idProducto: String) {
+        val intent = Intent(context, CartAdapter::class.java)
+        intent.putExtra("IdProducto", idProducto)
+        startActivity(intent)
+    }
 }

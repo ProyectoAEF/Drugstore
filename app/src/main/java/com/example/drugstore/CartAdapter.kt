@@ -3,43 +3,47 @@ package com.example.drugstore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.card_layout_cart.view.*
+import com.bumptech.glide.Glide
+import com.example.drugstore.fragments.ShoppingCartFragment
+import kotlinx.android.synthetic.main.card_layout.view.*
+import kotlinx.android.synthetic.main.card_layout_cart.view.item_image
+import kotlinx.android.synthetic.main.card_layout_cart.view.item_price
+import kotlinx.android.synthetic.main.card_layout_cart.view.item_title
 
-class CartAdapter:RecyclerView.Adapter<CartAdapter.ViewHolder>() {
-    private var titles = arrayOf("Hola")
-    private var prices = arrayOf("$0")
+class CartAdapter(private val context: ShoppingCartFragment):RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout_cart, parent, false)
-        return this.ViewHolder(v)
+    private var dataList = mutableListOf<Producto>()
+
+    fun setListData(data: MutableList<Producto>){
+        dataList = data
     }
 
-    override fun onBindViewHolder(holder: CartAdapter.ViewHolder, position: Int) {
-        holder.itemTitle.text = titles[position]
-        holder.itemPrice.text = prices[position]
-        //holder.itemImage = setImageResource(images[position])
-        holder.boton.setOnClickListener{
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout_cart, parent, false)
+        return ViewHolder(v)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val producto: Producto = dataList[position]
+        holder.bindView(producto)
     }
 
     override fun getItemCount(): Int {
-        return titles.size
-    }
-
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemImage: ImageView
-        var itemTitle: TextView
-        var itemPrice: TextView
-        val boton = itemView.erase
-
-        init{
-            itemImage=itemView.findViewById(R.id.item_image)
-            itemTitle=itemView.findViewById(R.id.item_title)
-            itemPrice=itemView.findViewById(R.id.item_price)
+        if(dataList.size > 0){
+            return dataList.size
+        }else{
+            return 0
         }
     }
 
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+        fun bindView(producto: Producto){
+            val boton = itemView.cart
+            Glide.with(context).load(producto.imageUrl).into(itemView.item_image)
+            itemView.item_title.text = producto.nombre
+            itemView.item_price.text = producto.precio
+        }
+    }
 }

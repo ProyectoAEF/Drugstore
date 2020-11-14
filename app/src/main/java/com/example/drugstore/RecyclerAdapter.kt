@@ -11,15 +11,17 @@ import kotlinx.android.synthetic.main.card_layout.view.item_image
 import kotlinx.android.synthetic.main.card_layout.view.item_price
 import kotlinx.android.synthetic.main.card_layout.view.item_title
 
-class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val context: DashboardFragment, private val itemClickListener: OnProductClickListener): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
+    interface OnProductClickListener{
+        fun onButtonCLick(idProducto: String)
+    }
 
     private var dataList = mutableListOf<Producto>()
 
     fun setListData(data:MutableList<Producto>){
         dataList = data
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
@@ -29,9 +31,6 @@ class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adap
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
         val producto: Producto = dataList[position]
         holder.bindView(producto)
-        holder.boton.setOnClickListener{
-
-        }
     }
 
     override fun getItemCount(): Int {
@@ -43,9 +42,9 @@ class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adap
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val boton = itemView.cart
 
         fun bindView(producto: Producto){
+            val boton = itemView.cart
             Glide.with(context).load(producto.imageUrl).into(itemView.item_image)
             itemView.item_title.text = producto.nombre
             itemView.item_price.text = producto.precio
@@ -55,6 +54,7 @@ class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adap
             } else{
                 itemView.item_prescrip.text = "Producto prescrito"
             }
+            itemView.setOnClickListener{itemClickListener.onButtonCLick(producto.idProducto)}
         }
     }
 }
