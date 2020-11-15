@@ -14,11 +14,9 @@ import kotlinx.android.synthetic.main.fragment_shopping_cart.*
 
 class ShoppingCartFragment : Fragment() {
 
-    val bundle:Bundle
-        get() {
-        }
-    
     private lateinit var adapter: CartAdapter
+    var carritoNombre:String = ""
+    var carritoPrecio:String = ""
     private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
     override fun onCreateView(
@@ -26,7 +24,12 @@ class ShoppingCartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping_cart, container, false)
+        val view = inflater.inflate(R.layout.fragment_shopping_cart, container, false)
+
+        carritoNombre = arguments?.getString("NombreProduc").toString()
+        carritoPrecio = arguments?.getString("PrecioProduc").toString()
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

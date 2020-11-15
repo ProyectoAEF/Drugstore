@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.card_layout.view.item_image
 import kotlinx.android.synthetic.main.card_layout.view.item_price
 import kotlinx.android.synthetic.main.card_layout.view.item_title
 
-class RecyclerAdapter(private val context: DashboardFragment, private val itemClickListener: OnProductClickListener): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    interface OnProductClickListener{
-        fun onAddProductClick(producto: Producto)
+    interface CommunicatorOne{
+        fun passDataOne(nombreProduc:String, priceProduc: String )
     }
     private var dataList = mutableListOf<Producto>()
 
@@ -54,7 +54,6 @@ class RecyclerAdapter(private val context: DashboardFragment, private val itemCl
             } else{
                 itemView.item_prescrip.text = "Producto prescrito"
             }
-            itemView.cart.setOnClickListener{itemClickListener.onAddProductClick(producto)}
         }
     }
 }

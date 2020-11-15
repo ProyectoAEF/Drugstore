@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_tienda.*
 
 
-class Tienda : AppCompatActivity() {
+class Tienda : AppCompatActivity(), RecyclerAdapter.CommunicatorOne {
 
     private val dashboardFragment = DashboardFragment()
     private val settingsFragment = SettingsFragment()
@@ -40,5 +40,18 @@ class Tienda : AppCompatActivity() {
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
         }
+    }
+
+    override fun passDataOne(nombreProduc:String, priceProduc: String) {
+        val bundle = Bundle()
+        bundle.putString("NombreProduc", nombreProduc)
+        bundle.putString("PrecioProduc", priceProduc)
+
+        val transaction = this.supportFragmentManager.beginTransaction()
+        val fragmentB = ShoppingCartFragment()
+        fragmentB.arguments = bundle
+
+        transaction.replace(R.id.fragment_container, fragmentB)
+        transaction.commit()
     }
 }

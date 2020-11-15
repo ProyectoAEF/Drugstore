@@ -1,20 +1,24 @@
 package com.example.drugstore.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.drugstore.*
+import kotlinx.android.synthetic.main.card_layout.*
+import kotlinx.android.synthetic.main.card_layout.view.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
+class DashboardFragment : Fragment(){
 
     private lateinit var adapter: RecyclerAdapter
+    private lateinit var communicatorOne: RecyclerAdapter.CommunicatorOne
     private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
     override fun onCreateView(
@@ -22,7 +26,13 @@ class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val view =  inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        communicatorOne = activity as RecyclerAdapter.CommunicatorOne
+         view.cart.setOnClickListener{
+             communicatorOne.passDataOne(item_title.text.toString(), item_price.text.toString())
+         }
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,7 +40,7 @@ class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
         }
-        adapter = RecyclerAdapter(this, this)
+        adapter = RecyclerAdapter(this)
         recyclerView.adapter = adapter
 
         observeData()
@@ -41,14 +51,5 @@ class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
             adapter.setListData(it)
             adapter.notifyDataSetChanged()
         })
-    }
-
-    override fun onAddProductClick(producto: Producto){
-        val intent = Intent(context, ShoppingCartFragment::class.java)
-        intent.putExtra("IdProducto", producto.idProducto)
-        intent.putExtra("imageUrl", producto.imageUrl)
-        intent.putExtra("NombreProducto", producto.nombre)
-        intent.putExtra("PrecioProducto", producto.precio)
-        startActivity(intent)
     }
 }
