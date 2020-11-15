@@ -14,9 +14,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu"
-        android:background="#000"
-        app:itemIconTint="@color/colorAccent"
-        app:itemTextColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFFFF"
         />
 
     <FrameLayout
@@ -26,6 +26,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
