@@ -1,5 +1,7 @@
 package com.example.drugstore
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,8 @@ class CartAdapter(private val context: ShoppingCartFragment):RecyclerView.Adapte
     fun setListData(data: MutableList<Producto>){
         dataList = data
     }
+
+    lateinit var bundle:Bundle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout_cart, parent, false)
@@ -40,7 +44,7 @@ class CartAdapter(private val context: ShoppingCartFragment):RecyclerView.Adapte
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         fun bindView(producto: Producto){
-            val boton = itemView.cart
+
             Glide.with(context).load(producto.imageUrl).into(itemView.item_image)
             itemView.item_title.text = producto.nombre
             itemView.item_price.text = producto.precio

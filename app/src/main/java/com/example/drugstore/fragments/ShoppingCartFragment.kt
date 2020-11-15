@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.fragment_shopping_cart.*
 
 class ShoppingCartFragment : Fragment() {
 
+    val bundle:Bundle
+        get() {
+        }
+    
     private lateinit var adapter: CartAdapter
     private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
@@ -33,18 +37,9 @@ class ShoppingCartFragment : Fragment() {
         adapter = CartAdapter(this)
         recyclerView.adapter = adapter
 
-        observeData()
-
         buy.setOnClickListener() {
             val intent = Intent(context, PayWindow::class.java)
             startActivity(intent)
         }
-    }
-
-    fun observeData() {
-        viewModel.fetchProductoData().observe(this, Observer {
-            adapter.setListData(it)
-            adapter.notifyDataSetChanged()
-        })
     }
 }

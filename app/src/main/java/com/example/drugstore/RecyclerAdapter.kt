@@ -3,6 +3,7 @@ package com.example.drugstore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.drugstore.fragments.DashboardFragment
@@ -11,8 +12,11 @@ import kotlinx.android.synthetic.main.card_layout.view.item_image
 import kotlinx.android.synthetic.main.card_layout.view.item_price
 import kotlinx.android.synthetic.main.card_layout.view.item_title
 
-class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val context: DashboardFragment, private val itemClickListener: OnProductClickListener): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
+    interface OnProductClickListener{
+        fun onAddProductClick(producto: Producto)
+    }
     private var dataList = mutableListOf<Producto>()
 
     fun setListData(data:MutableList<Producto>){
@@ -50,6 +54,7 @@ class RecyclerAdapter(private val context: DashboardFragment): RecyclerView.Adap
             } else{
                 itemView.item_prescrip.text = "Producto prescrito"
             }
+            itemView.cart.setOnClickListener{itemClickListener.onAddProductClick(producto)}
         }
     }
 }

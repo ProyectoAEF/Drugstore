@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drugstore.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(), RecyclerAdapter.OnProductClickListener {
 
     private lateinit var adapter: RecyclerAdapter
     private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
@@ -30,7 +30,7 @@ class DashboardFragment : Fragment() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
         }
-        adapter = RecyclerAdapter(this)
+        adapter = RecyclerAdapter(this, this)
         recyclerView.adapter = adapter
 
         observeData()
@@ -40,7 +40,15 @@ class DashboardFragment : Fragment() {
         viewModel.fetchProductoData().observe(this, Observer {
             adapter.setListData(it)
             adapter.notifyDataSetChanged()
-
         })
+    }
+
+    override fun onAddProductClick(producto: Producto){
+        val intent = Intent(context, ShoppingCartFragment::class.java)
+        intent.putExtra("IdProducto", producto.idProducto)
+        intent.putExtra("imageUrl", producto.imageUrl)
+        intent.putExtra("NombreProducto", producto.nombre)
+        intent.putExtra("PrecioProducto", producto.precio)
+        startActivity(intent)
     }
 }
