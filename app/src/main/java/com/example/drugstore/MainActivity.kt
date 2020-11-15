@@ -3,6 +3,7 @@ package com.example.drugstore
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -19,17 +20,17 @@ class MainActivity : AppCompatActivity() {
         val userid= user?.uid.toString()
 
 
-        mDatabase.child(userid).addValueEventListener(object:ValueEventListener{
+        mDatabase.child(userid).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    val cedula:String=snapshot.child("Num ID").getValue().toString()
-                    mTextView.setText("La cedula del usuario es "+cedula);
+                if (snapshot.exists()) {
+                    val cedula: String = snapshot.child("Num ID").getValue().toString()
+                    mTextView.setText("La cedula del usuario es " + cedula);
 
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                mTextView.setText("error");
             }
 
         })
