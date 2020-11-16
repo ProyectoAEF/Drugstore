@@ -35,6 +35,8 @@ class Update_user : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
+        val actionBar=supportActionBar
+        actionBar?.hide()
         textnombre=findViewById(R.id.textnombre)
         textapellido=findViewById(R.id.textapellido)
         textnumid=findViewById(R.id.textnumid)

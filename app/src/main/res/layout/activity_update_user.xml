@@ -1,112 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Update_user">
+    tools:context=".Update_user"
+    android:background="@drawable/fonodoup">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="eliminar_cuenta"
-            android:text="Eliminar" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="24dp">
 
         <EditText
             android:id="@+id/textnombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="nuevo nombre" />
+            android:hint="Ingrese nuevo nombre"
+            android:background="@drawable/round_border"
+            android:backgroundTint="#FFFFFF"
+            android:padding="14dp"
+            android:textAlignment="center"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="actu_nombre"
-            android:text="Actualizar" />
+            android:text="Editar"
+            android:textColor="#7F47DD"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            android:padding="16dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
 
         <EditText
             android:id="@+id/textapellido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="nuevo apellido" />
+            android:hint="Ingrese nuevo apellido"
+            android:background="@drawable/round_border"
+            android:backgroundTint="#FFFFFF"
+            android:padding="14dp"
+            android:textAlignment="center"
+            />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="actu_apellido"
-            android:text="Actualizar" />
+            android:text="Editar"
+            android:textColor="#7F47DD"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
 
         <EditText
             android:id="@+id/textnumid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="nuevo Num ID" />
+            android:hint="Ingrese nuevo Num ID"
+            android:background="@drawable/round_border"
+            android:backgroundTint="#FFFFFF"
+            android:padding="14dp"
+            android:textAlignment="center"
+            android:drawableStart="@drawable/ic_baseline_credit_card_24"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="actu_numid"
-            android:text="Actualizar" />
+            android:text="Editar"
+            android:textColor="#7F47DD"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
 
         <EditText
             android:id="@+id/textemail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="nevo email"
-            android:inputType="textEmailAddress"/>
+            android:hint="Ingrese nuevo email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/round_border"
+            android:backgroundTint="#FFFFFF"
+            android:padding="14dp"
+            android:textAlignment="center"
+            android:drawableStart="@drawable/ic_baseline_email_24"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="actu_email"
-            android:text="Actualizar Email" />
+            android:text="Actualizar"
+            android:textColor="#7F47DD"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
 
         <EditText
             android:id="@+id/textpassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="nuevo contraseñoa"
+            android:background="@drawable/round_border"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Ingrese nueva contraseña"
+            android:padding="14dp"
+            android:textAlignment="center"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:inputType="textPassword"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="actu_password"
-            android:text="Actualizar contraseña" />
+            android:text="Actualizar"
+            android:textColor="#7F47DD"
+            android:padding="16dp"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            />
     </LinearLayout>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="eliminar_cuenta"
+            android:padding="16dp"
+            android:text="Eliminar cuenta"
+            android:textColor="#7F47DD" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
