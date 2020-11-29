@@ -68,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
         val mDatabase= FirebaseDatabase.getInstance().getReference("User")
         val user=FirebaseAuth.getInstance().currentUser
         val userid= user?.uid.toString()
-        val intent = Intent(this, Tienda::class.java).apply { putExtra("cliente", userid) }
+        val intent = Intent(this, TiendaP::class.java).apply { putExtra("cliente", userid) }
         startActivity(intent)
     }
 }

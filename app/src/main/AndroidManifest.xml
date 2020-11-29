@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_icono_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Carrito"></activity>
+        <activity android:name=".TiendaP" />
         <activity android:name=".Update_user" />
         <activity android:name=".PayWindow" />
         <activity android:name=".Tienda" />
