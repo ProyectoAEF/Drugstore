@@ -1,57 +1,48 @@
 package com.example.drugstore
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.example.drugstore.fragments.DashboardFragment
-import com.example.drugstore.fragments.SettingsFragment
-import com.example.drugstore.fragments.ShoppingCartFragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_tienda.*
 
 
-class Tienda : AppCompatActivity(), RecyclerAdapter.CommunicatorOne {
+class Tienda : AppCompatActivity(){
 
-    private val dashboardFragment = DashboardFragment()
-    private val settingsFragment = SettingsFragment()
-    private val shoppingCartFragment = ShoppingCartFragment()
-
+    private val viewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private lateinit var adapter: RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tienda)
-        replaceFragment(dashboardFragment)
 
-        bottom_navigation.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.ic_dashboard -> replaceFragment(dashboardFragment)
-                R.id.ic_settings -> replaceFragment(settingsFragment)
-                R.id.ic_shopping_cart -> replaceFragment(shoppingCartFragment)
-            }
-            true
+        adapter = RecyclerAdapter(this)
+
+        layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+
+        observeData()
+
+        var botonSetting = settings
+        botonSetting.setOnClickListener(){
+            startActivity(Intent(this, Update_user::class.java))
+        }
+
+        var botonCarrito = carrito
+        botonCarrito.setOnClickListener(){
+            startActivity(Intent(this, Carrito::class.java))
         }
     }
 
-    private fun replaceFragment(fragment: Fragment){
-        if(fragment != null){
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.commit()
-        }
-    }
-
-    override fun passDataOne(nombreProduc:String, priceProduc: String) {
-        val bundle = Bundle()
-        bundle.putString("NombreProduc", nombreProduc)
-        bundle.putString("PrecioProduc", priceProduc)
-
-        val transaction = this.supportFragmentManager.beginTransaction()
-        val fragmentB = ShoppingCartFragment()
-        fragmentB.arguments = bundle
-
-        transaction.replace(R.id.fragment_container, fragmentB)
-        transaction.commit()
+    fun observeData() {
+        viewModel.fetchProductoData().observe(this, Observer {
+            adapter.setListData(it)
+            adapter.notifyDataSetChanged()
+        })
     }
 }

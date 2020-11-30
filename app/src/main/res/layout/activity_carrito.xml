@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tienda">
+    tools:context=".Carrito">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -12,17 +12,19 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="1.0" />
+
     <Button
-        android:id="@+id/carrito"
+        android:id="@+id/buy"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/round_bg"
-        android:drawableEnd="@drawable/ic_shopping_cart_2"
+        android:drawableEnd="@drawable/ic_money"
         android:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@id/recyclerView"
         app:layout_constraintRight_toRightOf="@id/recyclerView" />
@@ -38,4 +40,5 @@
         android:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@id/recyclerView"
         app:layout_constraintRight_toRightOf="@id/recyclerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
