@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.drugstore">
 
     <application
@@ -9,14 +10,15 @@
         android:roundIcon="@mipmap/ic_icono_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Carrito"></activity>
-        <activity android:name=".Update_user" />
-        <activity android:name=".PayWindow" />
-        <activity android:name=".Tienda" />
-        <activity android:name=".ForgotPassActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".pago.bdpres.PayWin"></activity>
+        <activity android:name=".carrito.Carrito" />
+        <activity android:name=".gestion_usuario.Update_user" />
+        <activity android:name=".tienda.Tienda" />
+        <activity android:name=".gestion_usuario.ForgotPassActivity" />
+        <activity android:name=".gestion_usuario.RegisterActivity"/>
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".gestion_usuario.LoginActivity"
             android:theme="@style/Splashtheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

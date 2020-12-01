@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Update_user"
+    tools:context=".gestion_usuario.Update_user"
     android:background="@drawable/fonodoup">
 <LinearLayout
     android:layout_width="match_parent"

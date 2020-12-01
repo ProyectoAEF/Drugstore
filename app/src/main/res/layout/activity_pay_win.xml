@@ -2,85 +2,86 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pay_window"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/pay_window"
-    tools:context=".PayWindow">
+    tools:context=".pago.bdpres.PayWin">
 
     <TextView
+        android:id="@+id/textPrescrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textPrescrip"
-        android:text="Verificación de prescripción médica"
-        android:textSize="20dp"
-        android:textColor="#000"
-        app:layout_constraintTop_toTopOf="@+id/pay_window"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:text="Verificación de prescripción médica"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toTopOf="@+id/pay_window"
+        android:visibility="gone"
         />
+
     <EditText
+        android:id="@+id/ingresoPrescrip"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:id="@+id/ingresoPrescrip"
-        android:hint="Ingrese número de prescripción"
-        android:textColorHint="#AFAAAA"
-        app:layout_constraintTop_toBottomOf="@+id/textPrescrip"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="12dp"
-        />
+        android:layout_marginTop="12dp"
+        android:hint="Ingrese número de prescripción"
+        android:inputType="textNoSuggestions"
+        android:textColorHint="#AFAAAA"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/textPrescrip"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/line1"
         android:layout_width="400dp"
         android:layout_height="1dp"
-        android:background="#AFAAAA"
-        app:layout_constraintTop_toBottomOf="@id/ingresoPrescrip"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
-        />
+        android:background="#AFAAAA"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@id/ingresoPrescrip"
+        android:visibility="gone"/>
 
     <TextView
+        android:id="@+id/textDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textDireccion"
-        android:text="Metodo de envío"
-        android:textSize="20dp"
-        android:textColor="#000"
-        app:layout_constraintTop_toBottomOf="@+id/line1"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="12dp"
-        />
+        android:layout_marginTop="12dp"
+        android:text="Metodo de envío"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textDireccion"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
         android:layout_marginTop="8dp"
-        >
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/textDireccion">
+
         <RadioButton
             android:id="@+id/direccion1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:text="Dirección"
             android:checked="true"
-            />
+            android:text="Dirección" />
+
         <EditText
             android:id="@+id/ingresoDireccion"
             android:layout_width="300dp"
             android:layout_height="42dp"
-            android:hint="Ingresar dirección de domicilio"
-            android:textColorHint="#AFAAAA"
-            android:textAlignment="center"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="18dp"
-            />
+            android:layout_marginTop="8dp"
+            android:hint="Ingresar dirección de domicilio"
+            android:textAlignment="center"
+            android:textColorHint="#AFAAAA" />
 
         <RadioButton
             android:id="@+id/direccion2"
@@ -89,50 +90,47 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
             android:checked="false"
-            android:text="Recoger en farmacia más cercana"
-            />
+            android:text="Recoger en farmacia más cercana" />
     </RadioGroup>
 
     <View
         android:id="@+id/line2"
         android:layout_width="400dp"
         android:layout_height="1dp"
-        android:background="#AFAAAA"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup1"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
-        />
+        android:background="#AFAAAA"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
 
 
     <TextView
+        android:id="@+id/textPago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textPago"
-        android:text="Metodo de pago"
-        android:textSize="20dp"
-        android:textColor="#000"
-        app:layout_constraintTop_toBottomOf="@+id/line2"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="12dp"
-        />
+        android:layout_marginTop="12dp"
+        android:text="Metodo de pago"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/line2" />
+
     <RadioGroup
         android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textPago"
-        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
         android:layout_marginTop="8dp"
-        >
+        app:layout_constraintLeft_toLeftOf="@+id/pay_window"
+        app:layout_constraintTop_toBottomOf="@+id/textPago">
+
         <RadioButton
             android:id="@+id/pay_method1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:text="Tarjeta de crédito/débito"
             android:checked="true"
-            />
+            android:text="Tarjeta de crédito/débito" />
 
         <RadioButton
             android:id="@+id/pay_method2"
@@ -141,33 +139,44 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
             android:checked="false"
-            android:text="Pago por PSE"
-            />
+            android:text="Pago por PSE" />
+
         <RadioButton
             android:id="@+id/pay_method3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
-            android:text="Efecty"
             android:checked="false"
-            />
+            android:text="Efecty" />
     </RadioGroup>
 
     <Button
         android:id="@+id/continuar"
         android:layout_width="100dp"
         android:layout_height="55dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pay_window"
-        app:layout_constraintRight_toRightOf="@+id/pay_window"
-        android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/round_bg"
+        android:backgroundTint="@color/colorAccent"
         android:text="Continuar"
         android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="@+id/pay_window"
+        app:layout_constraintRight_toRightOf="@+id/pay_window" />
+
+    <Button
+        android:id="@+id/confirmar"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_bg"
         android:backgroundTint="@color/colorAccent"
-        />
-
-
+        android:text="Confirmar"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="@+id/line1"
+        app:layout_constraintRight_toRightOf="@+id/pay_window"
+        android:onClick="comprobar"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

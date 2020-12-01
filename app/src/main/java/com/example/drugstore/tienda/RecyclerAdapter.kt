@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.tienda
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.drugstore.carrito.Carrito
+import com.example.drugstore.Producto
+import com.example.drugstore.R
 import kotlinx.android.synthetic.main.card_layout.view.*
 import kotlinx.android.synthetic.main.card_layout.view.item_image
 import kotlinx.android.synthetic.main.card_layout.view.item_price
@@ -19,12 +22,12 @@ class RecyclerAdapter(private val context: Tienda): RecyclerView.Adapter<Recycle
         dataList = data
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val producto: Producto = dataList[position]
         holder.bindView(producto)
         holder.boton.setOnClickListener {

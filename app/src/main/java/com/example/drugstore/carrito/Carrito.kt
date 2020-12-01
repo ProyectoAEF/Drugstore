@@ -1,13 +1,16 @@
-package com.example.drugstore
+package com.example.drugstore.carrito
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.drugstore.Producto
+import com.example.drugstore.R
+import com.example.drugstore.gestion_usuario.Update_user
+import com.example.drugstore.pago.bdpres.PayWin
 import kotlinx.android.synthetic.main.activity_carrito.*
 import kotlinx.android.synthetic.main.activity_carrito.recyclerView
 import kotlinx.android.synthetic.main.activity_carrito.settings
-import kotlinx.android.synthetic.main.activity_tienda.*
 
 class Carrito : AppCompatActivity() {
 
@@ -41,7 +44,11 @@ class Carrito : AppCompatActivity() {
 
         var botonComprar = buy
         botonComprar.setOnClickListener(){
-            startActivity(Intent(this, PayWindow::class.java))
+            startActivity(Intent(this, PayWin::class.java).apply {
+                putExtra("nombre",producto.nombre)
+                putExtra("precio",producto.precio)
+                putExtra("prescri",producto.prescrip)
+            })
         }
     }
 }

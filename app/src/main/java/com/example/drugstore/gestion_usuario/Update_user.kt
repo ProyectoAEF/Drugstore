@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.gestion_usuario
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,8 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.EmailAuthCredential
-import com.google.firebase.auth.EmailAuthProvider
+import com.example.drugstore.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -47,7 +45,7 @@ class Update_user : AppCompatActivity() {
 
         mAuthStateListener=FirebaseAuth.AuthStateListener{
             if(user==null){
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }else{
                 mDatabase.child(userid).addValueEventListener(object: ValueEventListener {
@@ -73,11 +71,11 @@ class Update_user : AppCompatActivity() {
         user?.delete()?.addOnCompleteListener{ task->
             if(task.isComplete){
                 finish()
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 Toast.makeText(this,"Usuario eliminado",Toast.LENGTH_LONG).show()
             }else{
                 finish()
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 Toast.makeText(this,"Error al eliminar",Toast.LENGTH_LONG).show()
             }
         }
@@ -122,7 +120,7 @@ class Update_user : AppCompatActivity() {
          user!!.updateEmail(newemail).addOnCompleteListener {task->
              if (task.isSuccessful){
                  finish()
-                 startActivity(Intent(this,LoginActivity::class.java))
+                 startActivity(Intent(this, LoginActivity::class.java))
                  Toast.makeText(this, "Email actualizado", Toast.LENGTH_LONG).show()
              }else{
                  Toast.makeText(this, "Error al actualizar", Toast.LENGTH_LONG).show()

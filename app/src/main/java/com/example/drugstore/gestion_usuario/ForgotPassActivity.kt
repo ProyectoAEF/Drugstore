@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.gestion_usuario
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.drugstore.R
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPassActivity : AppCompatActivity() {
@@ -33,7 +34,7 @@ class ForgotPassActivity : AppCompatActivity() {
                     task->
                     if(task.isSuccessful){
                         finish()
-                        startActivity(Intent(this,LoginActivity::class.java))
+                        startActivity(Intent(this, LoginActivity::class.java))
                     }else{
                         Toast.makeText(this,"Error al enviar Email",Toast.LENGTH_LONG).show()
                     }

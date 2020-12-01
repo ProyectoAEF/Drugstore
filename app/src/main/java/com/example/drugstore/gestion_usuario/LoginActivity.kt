@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.gestion_usuario
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +8,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
+import com.example.drugstore.R
+import com.example.drugstore.tienda.Tienda
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.core.utilities.Utilities
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -37,11 +37,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun forgotpassword(view:View){
-        startActivity(Intent(this,ForgotPassActivity()::class.java))
+        startActivity(Intent(this, ForgotPassActivity()::class.java))
     }
 
     fun register(view: View){
-        startActivity(Intent(this,RegisterActivity::class.java))
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     private fun loginUser(){

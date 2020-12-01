@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.tienda
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.drugstore.carrito.Carrito
+import com.example.drugstore.tienda.bdproductos.MainViewModel
+import com.example.drugstore.R
+import com.example.drugstore.gestion_usuario.Update_user
 import kotlinx.android.synthetic.main.activity_tienda.*
 
 

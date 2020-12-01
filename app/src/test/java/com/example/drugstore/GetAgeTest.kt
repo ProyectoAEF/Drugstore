@@ -1,10 +1,11 @@
 package com.example.drugstore
 
+import com.example.drugstore.gestion_usuario.GetAge
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class GetAgeTest{
-    private val prueba=GetAge()
+    private val prueba= GetAge()
 
     @Test
     fun no_negative(){

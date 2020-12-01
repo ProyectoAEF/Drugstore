@@ -1,7 +1,8 @@
-package com.example.drugstore
+package com.example.drugstore.tienda.bdproductos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.drugstore.Producto
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Repo {

@@ -1,4 +1,4 @@
-package com.example.drugstore
+package com.example.drugstore.gestion_usuario
 
 import android.os.Build
 import androidx.annotation.RequiresApi
