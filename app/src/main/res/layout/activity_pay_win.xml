@@ -55,7 +55,9 @@
         android:textColor="#000"
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        app:layout_constraintTop_toBottomOf="@+id/line1" />
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        android:visibility="gone"
+        />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -63,7 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        app:layout_constraintTop_toBottomOf="@+id/textDireccion">
+        app:layout_constraintTop_toBottomOf="@+id/textDireccion"
+        android:visibility="gone">
 
         <RadioButton
             android:id="@+id/direccion1"
@@ -101,7 +104,8 @@
         android:layout_marginTop="12dp"
         android:background="#AFAAAA"
         app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup1"
+        android:visibility="gone"/>
 
 
     <TextView
@@ -114,7 +118,9 @@
         android:textColor="#000"
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        app:layout_constraintTop_toBottomOf="@+id/line2" />
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        android:visibility="gone"
+        />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
@@ -122,7 +128,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/pay_window"
-        app:layout_constraintTop_toBottomOf="@+id/textPago">
+        app:layout_constraintTop_toBottomOf="@+id/textPago"
+        android:visibility="gone"
+        >
 
         <RadioButton
             android:id="@+id/pay_method1"
@@ -162,12 +170,14 @@
         android:text="Continuar"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="@+id/pay_window"
-        app:layout_constraintRight_toRightOf="@+id/pay_window" />
+        app:layout_constraintRight_toRightOf="@+id/pay_window"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/confirmar"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/round_bg"
@@ -177,6 +187,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/line1"
         app:layout_constraintRight_toRightOf="@+id/pay_window"
         android:onClick="comprobar"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

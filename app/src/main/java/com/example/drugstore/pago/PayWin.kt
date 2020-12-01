@@ -35,6 +35,13 @@ class PayWin : AppCompatActivity() {
             ingresoPrescrip.visibility = View.VISIBLE
             line1.visibility = View.VISIBLE
             confirmar.visibility = View.VISIBLE
+        }else{
+            textDireccion.visibility = View.VISIBLE
+            radioGroup1.visibility = View.VISIBLE
+            line2.visibility = View.VISIBLE
+            textPago.visibility = View.VISIBLE
+            radioGroup2.visibility = View.VISIBLE
+            continuar.visibility = View.VISIBLE
         }
 
         radioGroup1.setOnCheckedChangeListener { group, checkedId ->
@@ -48,6 +55,13 @@ class PayWin : AppCompatActivity() {
         for (producto in prescritos){
             if (prescri == producto.codigo){
                 Toast.makeText(this, "Codigo Correcto", Toast.LENGTH_SHORT).show()
+                ingresoPrescrip.isEnabled = false
+                textDireccion.visibility = View.VISIBLE
+                radioGroup1.visibility = View.VISIBLE
+                line2.visibility = View.VISIBLE
+                textPago.visibility = View.VISIBLE
+                radioGroup2.visibility = View.VISIBLE
+                continuar.visibility = View.VISIBLE
             }else{
                 Toast.makeText(this, "Codigo Incorrecto", Toast.LENGTH_SHORT).show()
             }
